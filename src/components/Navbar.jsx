@@ -16,14 +16,24 @@ const Navbar = () => {
   const [nav, setNav] = useState(false);
   const handleClick = () => setNav(!nav);
 
+  const handleLogoClick = () => {
+    window.open('/resume.pdf', '_blank');
+  };
+
   return (
     <div className='fixed w-full h-[80px] flex justify-between items-center px-4 bg-[#0a192f] text-gray-300'>
       <div>
-        <img src={Logo} alt='Logo Image' style={{ width: '80px', margin: '-5px', padding: '10px' }} />
+        <img 
+          src={Logo} 
+          alt='Logo Image' 
+          style={{ width: '80px', margin: '-5px', padding: '10px' }} 
+          onClick={handleLogoClick}
+          className='cursor-pointer'
+        />
       </div>
 
       {/* menu */}
-      <ul className='hidden md:flex '>
+      <ul className='hidden md:flex'>
         <li>
           <Link className='hover:underline' to='home' smooth={true} duration={500}>
             Home
@@ -70,25 +80,21 @@ const Navbar = () => {
           </Link>
         </li>
         <li className='py-6 text-4xl'>
-          {' '}
           <Link onClick={handleClick} to='about' smooth={true} duration={500}>
             About
           </Link>
         </li>
         <li className='py-6 text-4xl'>
-          {' '}
           <Link onClick={handleClick} to='skills' smooth={true} duration={500}>
             Skills
           </Link>
         </li>
         <li className='py-6 text-4xl'>
-          {' '}
           <Link onClick={handleClick} to='work' smooth={true} duration={500}>
             Work
           </Link>
         </li>
         <li className='py-6 text-4xl'>
-          {' '}
           <Link onClick={handleClick} to='contact' smooth={true} duration={500}>
             Contact
           </Link>
@@ -125,27 +131,10 @@ const Navbar = () => {
           <li className='w-[160px] h-[60px] flex justify-between items-center ml-[-100px] hover:ml-[-10px] duration-300 bg-[#565f69]'>
             <a
               className='flex justify-between items-center w-full text-gray-300'
-              href=''
+              href='/resume.pdf' download
             >
               Resume <BsFillPersonLinesFill size={30} />
             </a>
-            {/* new  */}
-          {/* </li>
-          <li className='w-[160px] h-[60px] flex justify-between items-center ml-[-100px] hover:ml-[-10px] duration-300 bg-[#565f69]'>
-            <a
-              className='flex justify-between items-center w-full text-gray-300'
-              href='/'
-            >
-              Facebook <FaFacebook size={30} />
-            </a>
-          </li>
-          <li className='w-[160px] h-[60px] flex justify-between items-center ml-[-100px] hover:ml-[-10px] duration-300 bg-[#565f69]'>
-            <a
-              className='flex justify-between items-center w-full text-gray-300'
-              href='/'
-            >
-               <FaLinkedinIn size={30} /> 
-             </a> */}
           </li>
         </ul>
       </div>
